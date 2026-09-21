@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitManager - Agenda</title>
+
+    <!-- FULLCALENDAR (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.0/all/global.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.0/themes/monarch/global.js" defer></script>
+    
+    <!-- FULLCALENDAR STYLESHEETS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.0/skeleton.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.0/themes/monarch/theme.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.0/themes/monarch/palettes/purple.css" rel="stylesheet" />
+
+    <!-- SEU CSS PERSONALIZADO -->
+    <link rel="stylesheet" href="../css/agenda.css" />
+
+    <!-- SEU SCRIPT SEPARADO -->
+    <script src="../js/agenda.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Cabeçalho Global do Sistema -->
+    <header class="aba-navegacao">
+
+        <h1 class="logo">FitManager</h1>
+
+        <nav class="menu" id="menu">
+
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="agenda.html" class="ativo">Agenda</a></li>
+                <li><a href="alunos.html">Alunos</a></li>
+                <li><a href="criacao_treino.html">Criação de Treino</a></li>
+                <li><a href="meu_perfil.html">Meu Perfil</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="agenda-container">
+
+        <!-- Topo da página: Título e Ação -->
+        <div class="cabecalho-pagina">
+
+            <h2 class="titulo-pagina">Agenda de Treinos</h2>
+
+            <button type="button" class="btn-agendar-compromisso" id="btn-abrir-modal">
+                Agendar Compromisso
+            </button>
+
+        </div>
+        
+        <!-- Elemento onde o FullCalendar será montado -->
+        <div id="calendar" class="calendario-box"></div>
+
+        <!-- Seção da Programação do Dia Selecionado -->
+        <section class="programacao-dia">
+            
+            <div class="cabecalho-secao">
+                <h3 class="titulo-secao">Programação do dia</h3>
+                <span class="data-selecionada">16 de Setembro, 2026</span>
+            </div>
+
+            <!-- Lista de compromissos do dia -->
+            <div class="lista-compromissos">
+                
+                <article class="card-compromisso">
+
+                    <div class="detalhes-compromisso">
+                        <span class="horario">07:00</span>
+                        <span class="nome-aluno">João Silva</span>
+                        <span class="tipo-treino">Avaliação física</span>
+                    </div>
+                    
+                    <button type="button" class="botao-fechar" aria-label="Remover compromisso">&times;</button>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

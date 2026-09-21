@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- A tag meta charset define a codificação de caracteres (acentos, ç, etc.) -->
+    <meta charset="UTF-8">
+
+    <!-- 
+        O meta viewport é OBRIGATÓRIO para sites mobile/responsivos.
+        Ele diz ao navegador do celular para ajustar a largura da página
+        à largura real da tela do dispositivo (width=device-width).
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Importação de fontes e ícones do Google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    
+    <title>FitManager</title>
+</head>
+<body>
+
+    
+
+     <!-- 
+     <header>: Representa o cabeçalho superior do site.
+     class="aba-navegacao": Classe para estilizar a barra do topo.
+    -->
+    <header class="aba-navegacao">
+            
+        <!-- h1: O título mais importante da aplicação (geralmente o nome do sistema ou logo) -->
+        <h1 class="logo">FitManager</h1>
+
+         <!-- 
+            <nav>: Tag semântica que indica que este bloco contém links de navegação.
+            id="menu": Identificador único útil caso você queira criar um botão "hambúrguer" via JavaScript no mobile.
+         -->
+        <nav class="menu" id="menu">
+
+            <ul>
+
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="alunos.html">Alunos</a></li>
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="criacao_treino.html">Criação de Treino</a></li>
+                <li><a href="meu_perfil.html">Meu Perfil</a></li>
+
+            </ul>
+
+         </nav>
+
+    </header>
+
+    <main>
+
+        <!-- h2: Título principal desta página específica (Dashboard) -->
+        <h2 class="titulo-pagina">Dashboard</h2>
+
+        <!-- 
+            div.cards: Caixas contendo as informações e métricas gerais.
+            Adicionamos classes específicas em cada sub-elemento (card-subtexto, card-valor)
+            para permitir o ajuste de tamanho de fonte no CSS mobile.
+        -->
+        <div class="cards">
+
+            <div class="card">
+                <h3 class="titulo-card">Total de Alunos</h3>
+                <p class="card-subtexto">2 alunos novos esse mês</p>
+                <p class="card-valor">6</p>
+            </div>
+
+            <div class="card">
+                <h3 class="titulo-card">Treinos Ativos</h3>
+                <p class="card-subtexto">2 aguardando revisão</p>
+                <p class="card-valor">2</p>
+            </div>
+
+            <div class="card">
+                <h3 class="titulo-card">Sessões Hoje</h3>
+                <p class="card-subtexto">Após 16:00</p>
+                <p class="card-valor">2</p>
+            </div>
+
+        </div>
+
+        <!-- 
+            <main> ou div wrapper: Envolvemos os painéis abaixo para facilitar o layout responsivo.
+            No mobile, todos ficam um abaixo do outro. No desktop, via CSS, você pode colocar em 2 colunas.
+        -->
+        <div class="paineis-container">
+
+            <!-- <section>: Utilizada para agrupar conteúdos que possuem um mesmo tema/propósito -->
+            <section class="painel alunos-novos">
+
+                <h3 class="titulo-secao">Alunos Novos</h3>
+                <div class="item-linha">
+                    <span class="nome-aluno">Mariana Lopes</span>
+                    <span class="matricula">FM-1042</span>
+                </div>
+
+            </section>
+
+            <!-- Seção sobre os compromissos do dia -->
+            <section class="painel compromissos-dia">
+
+                <h3 class="titulo-secao">Compromissos do dia</h3>
+
+                <div class="item-linha">
+                    <span class="horario">07:00</span>
+                    <span class="nome-aluno">João</span>
+                    <span class="descricao-treino">Treino A</span>
+                </div>
+
+            </section>
+
+            <!-- Seção sobre o vencimento dos treinos -->
+            <section class="painel treino-vencimento">
+
+                <h3 class="titulo-secao">Treinos perto de vencer</h3>
+
+                <div class="item-linha">
+                    <span class="nome-aluno">Carlos</span>
+                    <span class="data-vencimento">Vence em 18/08/2026</span>
+                </div>
+
+            </section>
+
+            <!-- Agenda -->
+            <section class="painel agenda">
+
+                <!-- Normalizado o título para h3 para manter o padrão semântico da página -->
+                <h3 class="titulo-secao">Agenda de Hoje (Sáb, 17 Ago)</h3>
+
+                <div class="item-linha">
+                    <span class="horario">07:00</span>
+                    <span class="nome-aluno">João</span>
+                    <span class="descricao-treino">Treino A</span>
+                </div>
+
+            </section>
+
+        </div> <!-- /.paineis-container -->
+
+    </main>
+
+</body>
+</html>

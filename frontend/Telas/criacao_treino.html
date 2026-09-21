@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta tag obrigatória para o ajuste de escala no celular (Mobile-First / Responsivo) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitManager - Criação de Treino</title>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO GLOBAL (Navegação principal) -->
+    <header class="aba-navegacao">
+
+        <h1 class="logo">FitManager</h1>
+
+        <nav class="menu" id="menu">
+
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="alunos.html">Alunos</a></li>
+                <li><a href="agenda.html"></a>Agenda</li>
+                <li><a href="criacao_treino.html">Criação de Treino</a></li>
+                <li><a href="meu_perfil.html">Meu Perfil</a></li>
+            </ul>
+
+        </nav>
+        
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL EXCLUSIVO DA PÁGINA -->
+    <main class="criacao-treino-container">
+
+        <h2 class="titulo-pagina">Criação de Treino</h2>
+
+        <!-- 
+            <section class="criacao-treino">: Bloco principal de montagem de treino.
+            No mobile, ficará empilhado (1 coluna); no desktop, pode ser dividido em 2 colunas.
+        -->
+        <section class="criacao-treino">
+            
+            <!-- Resumo do Aluno Selecionado -->
+            <div class="card-aluno-selecionado">
+
+                <h3 class="secao-titulo">Aluno Selecionado</h3>
+                
+                <div class="aluno-info-basica">
+
+                    <img src="../fotos/aluno1.jpg" alt="Foto do aluno" class="foto-aluno">
+                    <div class="aluno-detalhes">
+                        <p class="nome-aluno">João</p>
+                        <p class="matricula">#FM-1024</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Formulário de Configuração do Treino / IA -->
+            <form class="form-criacao-treino">
+                
+                <!-- 
+                    <details>: Permite esconder/mostrar as opções da IA.
+                    No mobile, isso economiza espaço de tela de forma nativa!
+                -->
+                <details class="config-ia-container" open>
+
+                    <summary class="config-ia-titulo">Configurar IA</summary>
+                    
+                    <div class="config-ia-conteudo">
+                        
+                        <!-- Diretrizes / Prompt da IA -->
+                        <div class="campo-form">
+                            <label for="prompt" class="rotulo-campo">Diretrizes da IA</label>
+
+                            <textarea 
+                                name="prompt" 
+                                id="prompt" 
+                                class="input-textarea"
+                                placeholder="Descreva focos, restrições ou ajustes (ex: Focar em quadríceps, evitar carga compressiva na lombar, incluir trabalho de mobilidade)..."
+                            ></textarea>
+
+                        </div>
+
+                        <!-- Seletor: Objetivo -->
+                        <div class="campo-form">
+
+                            <label for="objetivo" class="rotulo-campo">Objetivo</label>
+
+                            <select name="objetivo-treino" id="objetivo" class="input-select">
+                                <option value="hipertrofia">Hipertrofia</option>
+                                <option value="emagrecimento">Emagrecimento</option>
+                            </select>
+
+                        </div>
+
+                        <!-- Seletor: Foco -->
+                        <div class="campo-form">
+
+                            <label for="foco" class="rotulo-campo">Foco</label>
+
+                            <select name="foco" id="foco" class="input-select">
+                                <option value="peito_triceps">Peito e Tríceps</option>
+                                <option value="costas_biceps">Costas e Bíceps</option>
+                                <option value="perna">Perna</option>
+                                <option value="fullbody">FullBody</option>
+                            </select>
+
+                        </div>
+
+                        <!-- Seletor: Nível -->
+                        <div class="campo-form">
+
+                            <label for="nivel" class="rotulo-campo">Nível</label>
+
+                            <select name="nivel" id="nivel" class="input-select">
+                                <option value="iniciante">Iniciante</option>
+                                <option value="intermediario">Intermediário</option>
+                                <option value="avancado">Avançado</option>
+                            </select>
+
+                        </div>
+
+                        <!-- Botão de Ação -->
+                        <button type="button" class="btn-gerar-rascunho">
+                            Gerar Rascunho com IA
+                        </button>
+
+                    </div> <!-- /.config-ia-conteudo -->
+                </details>
+
+            </form>
+
+        </section> <!-- /.criacao-treino -->
+
+    </main>
+
+</body>
+</html>

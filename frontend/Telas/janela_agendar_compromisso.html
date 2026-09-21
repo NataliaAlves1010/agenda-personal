@@ -1,0 +1,70 @@
+<!-- Fundo escuro / overlay que cobre toda a tela -->
+<div class="modal-overlay hidden" id="modal-compromisso" aria-hidden="true">
+    
+    <!-- Caixa principal do modal -->
+    <div class="modal-container" role="dialog" aria-labelledby="modal-titulo">
+        
+        <!-- Cabeçalho do Modal -->
+        <div class="modal-cabecalho">
+
+            <h3 class="modal-titulo" id="modal-titulo">Agendar Compromisso / Treino</h3>
+            
+            <button class="botao-fechar">&times;</button>
+
+        </div>
+
+        <!-- Formulário de Agendamento -->
+        <form class="form-compromisso" id="form-compromisso">
+            
+            <!-- Campo: Aluno -->
+            <div class="campo-form">
+
+                <label for="comp-aluno" class="rotulo-campo">Aluno *</label>
+
+                <select id="comp-aluno" name="aluno" class="input-select" required>
+                    <option value="1">João Silva (FM-1024)</option>
+                    <option value="2">Mariana Lopes (FM-1042)</option>
+                    <option value="3">Carlos Eduardo (FM-1011)</option>
+                </select>
+
+            </div>
+
+            <!-- Linha com Data e Horário lado a lado -->
+            <div class="linha-dupla">
+
+                <div class="campo-form">
+                    <label for="comp-data" class="rotulo-campo">Data *</label>
+                    <input type="date" id="comp-data" name="data" class="input-data" value="18-09-2026" required>
+                </div>
+
+                <div class="campo-form">
+                    <label for="comp-hora" class="rotulo-campo">Horário *</label>
+                    <input type="time" id="comp-hora" name="hora" class="input-hora" value="08:00" required>
+                </div>
+
+            </div>
+
+            <!-- Campo: Tipo de Atividade -->
+            <div class="campo-form">
+
+                <label for="comp-tipo" class="rotulo-campo">Tipo de Atividade</label>
+
+                <select id="comp-tipo" name="tipo" class="input-select">
+                    <option value="treino_a">Treino</option>
+                    <option value="avaliacao">Avaliação Física / Bioimpedância</option>
+                    <option value="consultoria">Consultoria Online</option>
+                </select>
+
+            </div>
+
+            <!-- Botões de Ação do Rodapé -->
+            <div class="modal-acoes">
+                <button type="button" class="btn-cancelar" id="btn-cancelar">Cancelar</button>
+                <button type="submit" class="btn-confirmar">Confirmar Agendamento</button>
+            </div>
+
+        </form>
+
+    </div> <!-- /.modal-container -->
+
+</div> <!-- /.modal-overlay -->

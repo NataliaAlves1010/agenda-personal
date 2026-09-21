@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta tag obrigatória para renderização responsiva em telas de celulares e tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitManager - Perfil do Aluno</title>
+</head>
+
+<body>
+
+    <header class="aba-navegacao">
+
+        <h1 class="logo">FitManager</h1>
+
+        <!-- nav: Menu de navegação principal da aplicação -->
+        <nav class="menu" id="menu">
+
+            <ul>
+
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="alunos.html">Alunos</a></li>
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="criacao_treino.html">Criação de Treino</a></li>
+                <li><a href="meu_perfil.html">Meu Perfil</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL EXCLUSIVO DA PÁGINA -->
+    <main>
+        <!-- 
+            pagina-aluno: Contêiner pai responsável por agrupar o perfil e os dados.
+            No mobile, ficará em uma coluna única (empilhado); no desktop, poderá ser dividido em colunas com Flexbox/Grid.
+        -->
+        <div class="pagina-aluno">
+
+            <!-- LADO ESQUERDO: Cartão com foto e resumo do aluno -->
+            <section class="card-aluno">
+                
+                <div class="foto-aluno">
+                    <img 
+                        src="...fotos/alunos.webp" 
+                        alt="Foto do aluno"
+                        class="img-perfil"
+                    >
+                </div>
+
+                <div class="identificacao-aluno">
+                    <h2 class="nome-aluno">João Silva</h2>
+                    <span class="matricula">#FM-1024</span>
+                    <span class="status">ATIVO</span>
+                </div>
+
+                <!-- 
+                    informacoes-aluno: Grade de métricas do aluno (Plano, Idade, Peso, Altura).
+                    Adicionadas classes em cada div e span para ajuste de fonte no mobile.
+                -->
+                <div class="informacoes-aluno">
+
+                    <div class="info-item">
+                        <span class="info-label">PLANO</span>
+                        <span class="info-valor">Hipertrofia</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">IDADE</span>
+                        <span class="info-valor">28 anos</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">PESO</span>
+                        <span class="info-valor">82 kg</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">ALTURA</span>
+                        <span class="info-valor">178cm</span>
+                    </div>
+
+                </div>
+
+                <!-- Formulário para upload de arquivo PDF de bioimpedância -->
+                <form class="upload-bioimpedancia">
+
+                    <input 
+                        type="file" 
+                        id="bioimpedancia" 
+                        name="bioimpedancia" 
+                        accept=".pdf"
+                        class="input-file-oculto"
+                    >
+                    <button type="button" class="btn-upload">
+                        <span class="btn-titulo">Anexar PDF Bioimpedância</span>
+                        <span class="btn-subtexto">Clique para fazer upload</span>
+                    </button>
+
+                </form>
+
+            </section> <!-- /.card-aluno -->
+
+
+            <!-- LADO DIREITO: Tabela com dados detalhados da bioimpedância -->
+            <section class="dados-bioimpedancia">
+                
+                <div class="cabecalho-bioimpedancia">
+                    <h3 class="titulo-secao">DADOS DE BIOIMPEDÂNCIA</h3>
+                    <span class="data-avaliacao">Avaliação: 10/08/2024</span>
+                </div>
+
+                <!-- 
+                    table: Estrutura ideal para apresentação de dados comparativos tabulares.
+                    No CSS mobile, você pode aplicar overflow-x: auto na section para habilitar rolagem lateral se necessário.
+                -->
+                <table class="tabela-bioimpedancia">
+                    <!-- CABEÇALHO DA TABELA-->
+                    <thead>
+
+                        <!-- LINHA DA TABELA (COLUNAS) TAG TR -->
+                        <tr>
+                            <th scope="col" class="col-metrica">MÉTRICA</th>
+                            <th scope="col" class="col-atual">ATUAL</th>
+                            <th scope="col" class="col-anterior">ANTERIOR</th>
+                            <th scope="col" class="col-variacao">VARIAÇÃO</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <!-- DADOS DA TABELA TAG TD -->
+                        <tr>
+                            <th scope="row" class="linha-titulo">Peso Total</th>
+                            <td class="valor-atual">82.3 kg</td>
+                            <td class="valor-anterior">84.1 kg</td>
+                            <td class="variacao valor-reduzido">-1.8 kg</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" class="linha-titulo">Massa Muscular</th>
+                            <td class="valor-atual">38.6 kg</td>
+                            <td class="valor-anterior">37.2 kg</td>
+                            <td class="variacao valor-aumentado">+1.4 kg</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" class="linha-titulo">Gordura Corporal</th>
+                            <td class="valor-atual">18.2%</td>
+                            <td class="valor-anterior">20.1%</td>
+                            <td class="variacao valor-reduzido">-1.9%</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" class="linha-titulo">Massa Gordurosa</th>
+                            <td class="valor-atual">14.9 kg</td>
+                            <td class="valor-anterior">16.8 kg</td>
+                            <td class="variacao valor-reduzido">-1.9 kg</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" class="linha-titulo">Água Corporal</th>
+                            <td class="valor-atual">61.3%</td>
+                            <td class="valor-anterior">59.8%</td>
+                            <td class="variacao valor-aumentado">+1.5%</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" class="linha-titulo">Taxa Metabólica</th>
+                            <td class="valor-atual">1.842 kcal</td>
+                            <td class="valor-anterior">1.798 kcal</td>
+                            <td class="variacao valor-aumentado">+44 kcal</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" class="linha-titulo">IMC</th>
+                            <td class="valor-atual">25.9</td>
+                            <td class="valor-anterior">26.5</td>
+                            <td class="variacao valor-reduzido">-0.6</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" class="linha-titulo">Gordura Visceral</th>
+                            <td class="valor-atual">8</td>
+                            <td class="valor-anterior">9</td>
+                            <td class="variacao valor-reduzido">-1</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </section> <!-- /.dados-bioimpedancia -->
+
+        </div> <!-- /.pagina-aluno -->
+    </main>
+
+</body>
+</html>

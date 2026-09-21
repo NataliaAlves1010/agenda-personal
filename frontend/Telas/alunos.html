@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta tag viewport essencial para renderização em celulares e tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Importação das bibliotecas de ícones -->
+    <script src="https://kit.fontawesome.com/d5c54d2ec4.js" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    
+    <title>FitManager - Gestão de Alunos</title>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO GLOBAL (Navegação principal) -->
+    <header class="aba-navegacao">
+
+        <h1 class="logo">FitManager</h1>
+
+        <nav class="menu" id="menu">
+
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="alunos.html">Alunos</a></li>
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="criacao_treino.html">Criação de Treino</a></li>
+                <li><a href="meu_perfil.html">Meu Perfil</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL EXCLUSIVO DA PÁGINA DE ALUNOS -->
+    <main class="alunos-container">
+
+        <!-- Topo da página: Título e Ação Principal -->
+        <div class="cabecalho-pagina">
+
+            <h2 class="titulo-pagina">Alunos</h2>
+
+            <!-- Botão de cadastro destacado para facilidade de clique no mobile (touch target) -->
+            <button type="button" class="btn-novo-aluno">
+                <i class="fa-solid fa-plus"></i> Novo Aluno
+            </button>
+
+        </div>
+
+        <!-- 
+            FORMULÁRIO DE BUSCA
+            - Mantida a estrutura com input e ícone.
+            - Adicionado label oculta (para acessibilidade/leitores de tela) e classes em kebab-case.
+        -->
+        <form class="busca-alunos" role="search">
+
+            <label for="campo-busca" class="sr-only">Buscar alunos</label>
+
+            <i class="material-symbols-outlined icone-busca">search</i>
+
+            <input 
+                type="search" 
+                id="campo-busca"
+                name="busca" 
+                class="input-busca"
+                placeholder="Buscar por nome ou matrícula..."
+            >
+        </form>
+
+        <!-- 
+            FILTROS / MÉTRICAS
+            - Agrupados numa div (.filtros-status) para permitir roll horizontal no mobile (overflow-x: auto)
+              caso a tela seja muito estreita, mantendo os botões legíveis.
+        -->
+        <div class="filtros-status">
+
+            <button type="button" class="filtro-btn ativo">6 Todos</button>
+            <button type="button" class="filtro-btn">3 Ativos</button>
+            <button type="button" class="filtro-btn">2 Novos</button>
+            <button type="button" class="filtro-btn">1 Vencendo</button>
+
+        </div>
+
+        <!-- 
+            LISTA / GRID DE CARDS DOS ALUNOS
+            - Envolvida por .lista-alunos para permitir exibição em 1 coluna no mobile e grade no desktop.
+            - Cada card utiliza a tag semântica <article> representando a ficha do aluno.
+        -->
+        <div class="lista-alunos">
+
+            <article class="card-aluno">
+
+                <div class="foto-container">
+                    <img src="../fotos/aluno1.jpg" alt="Foto do aluno" class="foto-aluno">
+                </div>
+
+                <div class="info-card">
+
+                    <div class="cabecalho-card">
+                        <h3 class="nome-aluno">João Silva</h3>
+                        <span class="status-aluno status-ativo">Ativo</span>
+                    </div>
+
+                    <p class="matricula-aluno">#FM-1024</p>
+                    
+                    <!-- 
+                        Estruturados os dados em spans individuais com classe
+                        para facilitar ajustes de fonte ou quebra de linha no mobile.
+                    -->
+                    <p class="detalhes-aluno">
+
+                        <span class="detalhe-item">Hipertrofia</span>  
+                        <span class="detalhe-item">28 anos</span> 
+                        <span class="detalhe-item">82kg</span>
+
+                    </p>
+
+                    <p class="data-vencimento">
+                        Vence: <time datetime="2026-09-15">15/09/2026</time>
+                    </p>
+                    
+                </div>
+            </article>
+
+        </div> <!-- /.lista-alunos -->
+
+    </main>
+
+</body>
+</html>
