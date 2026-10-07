@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/d5c54d2ec4.js" crossorigin="anonymous" defer></script>
+
+    <link rel="stylesheet" href="../../css/dashboard.css">
+
+    <title>FitManager</title>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header class="aba-navegacao">
+
+        <h1 class="logo">FitManager</h1>
+
+        <nav class="menu" id="menu">
+
+            <ul>
+
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="alunos.html">Alunos</a></li>
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="criacao_treino.html">Criação de Treino</a></li>
+                <li><a href="meu_perfil.html">Meu Perfil</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <h2 class="titulo-pagina">Dashboard</h2>
+
+
+        <!-- CARDS DO DASHBOARD -->
+
+        <div class="cards">
+
+            <!-- Card com o total de alunos -->
+
+            <div class="card">
+
+                <h3 class="titulo-card">Total de Alunos</h3>
+
+                <p class="card-subtexto">2 alunos novos esse mês</p>
+
+                <p class="card-valor">6</p>
+
+            </div>
+
+
+            <!-- Card com o total de treinos ativos -->
+
+            <div class="card">
+
+                <h3 class="titulo-card">Treinos Ativos</h3>
+
+                <p class="card-subtexto">2 aguardando revisão</p>
+
+                <p class="card-valor">2</p>
+
+            </div>
+
+
+            <!-- Card com as sessões que serão realizadas hoje -->
+
+            <div class="card">
+
+                <h3 class="titulo-card">Sessões Hoje</h3>
+
+                <p class="card-subtexto">Após 16:00</p>
+
+                <p class="card-valor">2</p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PAINÉIS DO DASHBOARD -->
+
+        <div class="paineis-container">
+
+
+            <!-- CONTEÚDO PRINCIPAL -->
+
+            <div class="conteudo-principal">
+
+
+                <!-- CARD DE ALUNOS NOVOS -->
+
+                <section class="painel alunos-novos">
+
+                    <h3 class="titulo-secao">Alunos Novos</h3>
+
+                    <div class="item-linha">
+
+                        <span class="nome-aluno">Mariana Lopes</span>
+
+                        <span class="matricula">FM-1042</span>
+
+                        <a href="aluno_perfil.html" aria-label="Ver perfil do aluno">
+
+                            <i class="fa-solid fa-greater-than"></i>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CARD COM OS COMPROMISSOS DO DIA -->
+
+                <section class="painel compromissos-dia">
+
+                    <h3 class="titulo-secao">Compromissos do dia</h3>
+
+                    <div class="item-linha">
+
+                        <span class="horario">07:00</span>
+
+                        <span class="nome-aluno">João</span>
+
+                        <span class="descricao-treino">Treino A</span>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CARD DE TREINOS PRÓXIMOS DO VENCIMENTO -->
+
+                <section class="painel treino-vencimento">
+
+                    <h3 class="titulo-secao">Treinos perto de vencer</h3>
+
+
+                    <div class="item-linha">
+
+                        <span class="nome-aluno">Carlos</span>
+
+                        <span class="data-vencimento">
+
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+
+                            Vence em 18/08/2026
+
+                        </span>
+
+
+                        <!-- Seta para acessar o perfil do aluno -->
+
+                        <a href="aluno_perfil.html" aria-label="Ver perfil do aluno">
+
+                            <i class="fa-solid fa-greater-than"></i>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- AGENDA LATERAL -->
+
+            <aside class="agenda-lateral">
+
+                <section class="painel agenda">
+
+                    <h3 class="titulo-secao">Agenda de Hoje</h3>
+
+                    <!-- Data da agenda -->
+
+                    <p class="data-agenda">Sáb, 17 Ago</p>
+
+
+                    <!-- Item da agenda -->
+
+                    <div class="item-linha">
+
+                        <span class="horario">07:00</span>
+
+                        <span class="nome-aluno">João</span>
+
+                        <span class="descricao-treino">Treino A</span>
+
+                    </div>
+
+                </section>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

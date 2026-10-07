@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/d5c54d2ec4.js" crossorigin="anonymous" defer></script>
+
+    <title>FitManager - Criação de Treino</title>
+
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header class="aba-navegacao">
+
+        <h1 class="logo">FitManager</h1>
+
+        <nav class="menu" id="menu">
+
+            <ul>
+
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="alunos.html">Alunos</a></li>
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="criacao_treino.html">Criação de Treino</a></li>
+                <li><a href="meu_perfil.html">Meu Perfil</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+
+    <main class="criacao-treino-container">
+
+        <h2 class="titulo-pagina">Criação de Treino</h2>
+
+
+        <!-- ALUNO SELECIONADO -->
+
+        <section class="card-aluno-selecionado">
+
+            <h3 class="secao-titulo">Aluno Selecionado</h3>
+
+            <div class="aluno-info-basica">
+
+                <img 
+                    src="../fotos/aluno1.jpg" 
+                    alt="Foto do aluno" 
+                    class="foto-aluno"
+                >
+
+                <div class="aluno-detalhes">
+
+                    <p class="nome-aluno">João</p>
+                    <p class="matricula">#FM-1024</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONFIGURAÇÃO DA IA -->
+
+        <form class="form-criacao-treino">
+
+            <details class="config-ia-container" open>
+
+                <summary class="config-ia-titulo">
+                    Configurar IA
+                </summary>
+
+                <div class="config-ia-conteudo">
+
+                    <div class="campo-form">
+
+                        <label for="prompt" class="rotulo-campo">
+                            Diretrizes da IA
+                        </label>
+
+                        <textarea 
+                            name="prompt" 
+                            id="prompt" 
+                            class="input-textarea"
+                            placeholder="Descreva focos, restrições ou ajustes..."
+                        ></textarea>
+
+                    </div>
+
+                    <div class="campo-form">
+
+                        <label for="objetivo" class="rotulo-campo">
+                            Objetivo
+                        </label>
+
+                        <select name="objetivo-treino" id="objetivo" class="input-select">
+
+                            <option value="hipertrofia">Hipertrofia</option>
+                            <option value="emagrecimento">Emagrecimento</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="campo-form">
+
+                        <label for="foco" class="rotulo-campo">
+                            Foco
+                        </label>
+
+                        <select name="foco" id="foco" class="input-select">
+
+                            <option value="peito_triceps">Peito e Tríceps</option>
+                            <option value="costas_biceps">Costas e Bíceps</option>
+                            <option value="perna">Perna</option>
+                            <option value="fullbody">FullBody</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="campo-form">
+
+                        <label for="nivel" class="rotulo-campo">
+                            Nível
+                        </label>
+
+                        <select name="nivel" id="nivel" class="input-select">
+
+                            <option value="iniciante">Iniciante</option>
+                            <option value="intermediario">Intermediário</option>
+                            <option value="avancado">Avançado</option>
+
+                        </select>
+
+                    </div>
+
+                    <button type="button" class="btn-gerar-rascunho">
+                        Gerar Rascunho com IA
+                    </button>
+
+                </div>
+
+            </details>
+
+        </form>
+
+
+        <!-- ESTRUTURA DO TREINO -->
+
+        <form class="form-treino" id="form-treino">
+
+            <section class="resumo-treino">
+
+                <div class="dados-exercicio">
+
+                    <label for="nome-treino">Nome do treino</label>
+
+                    <input 
+                        type="text" 
+                        name="nome-treino" 
+                        id="nome-treino" 
+                        placeholder="TREINO A"
+                    >
+
+                </div>
+
+
+                <!-- BLOCO -->
+
+                <section class="bloco-treino">
+
+                    <header class="cabecalho-bloco">
+
+                        <h3>Bloco 1</h3>
+
+                        <button type="button" class="botao-adicionar-exercicio">
+                            + Exercício
+                        </button>
+
+                    </header>
+
+
+                    <!-- EXERCÍCIOS DO BLOCO -->
+
+                    <ol class="lista-exercicios">
+
+                        <!-- EXERCÍCIO -->
+
+                        <li class="exercicio">
+
+                            <div class="dados-exercicio">
+
+                                <label for="nome-exercicio-1">
+                                    Nome do exercício
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="nome-exercicio-1"
+                                    name="nome-exercicio-1"
+                                    placeholder="Ex.: Crucifixo"
+                                >
+
+                            </div>
+
+
+                            <!-- CONFIGURAÇÃO DO EXERCÍCIO -->
+
+                            <fieldset>
+
+                                <legend>Configuração</legend>
+
+                                <label for="series-exercicio-1">
+                                    Séries
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="series-exercicio-1"
+                                    name="series-exercicio-1"
+                                    placeholder="4"
+                                >
+
+
+                                <label for="repeticoes-exercicio-1">
+                                    Repetições
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="repeticoes-exercicio-1"
+                                    name="repeticoes-exercicio-1"
+                                    placeholder="12"
+                                >
+
+                            </fieldset>
+
+
+                            <!-- OBSERVAÇÕES -->
+
+                            <label for="observacoes-exercicio-1">
+                                Observações
+                            </label>
+
+                            <textarea
+                                id="observacoes-exercicio-1"
+                                name="observacoes-exercicio-1"
+                                placeholder="Observações sobre o exercício..."
+                            ></textarea>
+
+
+                            <!-- AÇÕES DO EXERCÍCIO -->
+
+                            <div class="acoes-exercicio">
+
+                                <button type="button" class="botao-editar">
+                                    <i class="fa-solid fa-pen"></i>
+                                    Editar
+                                </button>
+
+                                <button type="button" class="botao-excluir">
+                                    <i class="fa-solid fa-trash"></i>
+                                    Excluir
+                                </button>
+
+                            </div>
+
+                        </li>
+
+
+                        <!-- EXERCÍCIO 2 -->
+
+                        <li class="exercicio">
+
+                            <div class="dados-exercicio">
+
+                                <label for="nome-exercicio-2">
+                                    Nome do exercício
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="nome-exercicio-2"
+                                    name="nome-exercicio-2"
+                                    placeholder="Ex.: Supino reto"
+                                >
+
+                            </div>
+
+                            <fieldset>
+
+                                <legend>Configuração</legend>
+
+                                <label for="series-exercicio-2">
+                                    Séries
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="series-exercicio-2"
+                                    name="series-exercicio-2"
+                                    placeholder="4"
+                                >
+
+                                <label for="repeticoes-exercicio-2">
+                                    Repetições
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="repeticoes-exercicio-2"
+                                    name="repeticoes-exercicio-2"
+                                    placeholder="10"
+                                >
+
+                            </fieldset>
+
+                            <label for="observacoes-exercicio-2">
+                                Observações
+                            </label>
+
+                            <textarea
+                                id="observacoes-exercicio-2"
+                                name="observacoes-exercicio-2"
+                                placeholder="Observações sobre o exercício..."
+                            ></textarea>
+
+                            <div class="acoes-exercicio">
+
+                                <button type="button" class="botao-editar">
+                                    <i class="fa-solid fa-pen"></i>
+                                    Editar
+                                </button>
+
+                                <button type="button" class="botao-excluir">
+                                    <i class="fa-solid fa-trash"></i>
+                                    Excluir
+                                </button>
+
+                            </div>
+
+                        </li>
+
+                    </ol>
+
+                </section>
+
+
+                <!-- BLOCO -->
+
+                <section class="bloco-treino">
+
+                    <header class="cabecalho-bloco">
+
+                        <h3>Bloco 2</h3>
+
+                        <button type="button" class="botao-adicionar-exercicio">
+                            + Exercício
+                        </button>
+
+                    </header>
+
+                    <ol class="lista-exercicios">
+
+                        <li class="exercicio">
+
+                            <div class="dados-exercicio">
+
+                                <label for="nome-exercicio-3">
+                                    Nome do exercício
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="nome-exercicio-3"
+                                    name="nome-exercicio-3"
+                                    placeholder="Ex.: Tríceps na polia"
+                                >
+
+                            </div>
+
+                            <fieldset>
+
+                                <legend>Configuração</legend>
+
+                                <label for="series-exercicio-3">
+                                    Séries
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="series-exercicio-3"
+                                    name="series-exercicio-3"
+                                    placeholder="3"
+                                >
+
+                                <label for="repeticoes-exercicio-3">
+                                    Repetições
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="repeticoes-exercicio-3"
+                                    name="repeticoes-exercicio-3"
+                                    placeholder="12"
+                                >
+
+                            </fieldset>
+
+                            <label for="observacoes-exercicio-3">
+                                Observações
+                            </label>
+
+                            <textarea
+                                id="observacoes-exercicio-3"
+                                name="observacoes-exercicio-3"
+                                placeholder="Observações sobre o exercício..."
+                            ></textarea>
+
+                            <div class="acoes-exercicio">
+
+                                <button type="button" class="botao-editar">
+                                    <i class="fa-solid fa-pen"></i>
+                                    Editar
+                                </button>
+
+                                <button type="button" class="botao-excluir">
+                                    <i class="fa-solid fa-trash"></i>
+                                    Excluir
+                                </button>
+
+                            </div>
+
+                        </li>
+
+                    </ol>
+
+                </section>
+
+
+                <!-- ADICIONAR NOVO BLOCO -->
+
+                <button type="button" class="botao-adicionar-bloco">
+                    + Adicionar Novo Bloco
+                </button>
+
+
+                <!-- AÇÕES DO TREINO -->
+
+                <div class="acoes-treino">
+
+                    <button type="button" class="botao-editar">
+                        Editar Estrutura
+                    </button>
+
+                    <button type="submit" class="botao-salvar-treino">
+                        SALVAR E ENVIAR TREINO
+                    </button>
+
+                </div>
+
+            </section>
+        </form>
+
+    </main>
+
+</body>
+
+</html>

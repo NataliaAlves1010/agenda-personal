@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <script src="https://kit.fontawesome.com/d5c54d2ec4.js" crossorigin="anonymous" defer></script>
+
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- MODAL DE CADASTRO DE ALUNO -->
+
+  <div id="modal-aluno" class="modal">
+
+      <div class="modal-conteudo">
+
+          <!-- CABEÇALHO DO MODAL -->
+
+          <div class="modal-header">
+
+              <h2 id="titulo-modal">Cadastrar Novo Aluno</h2>
+
+              <!-- BOTÃO PARA FECHAR O MODAL -->
+
+              <button
+                  id="btn-fechar-modal"
+                  class="btn-fechar"
+                  type="button"
+                  aria-label="Fechar janela"
+              >
+                  <i class="fa-solid fa-xmark"></i>
+              </button>
+
+            </div>
+
+            <form class="form-modal-aluno">
+
+              <!-- DADOS PESSOAIS -->
+
+              <div class="campo-grupo">
+
+                  <label for="nome-aluno">Nome Completo *</label>
+
+                  <input
+                      type="text"
+                      id="nome-aluno"
+                      name="nome"
+                      required
+                      placeholder="Ex: João Silva dos Santos"
+                  >
+
+              </div>
+
+
+              <!-- IDADE E TELEFONE -->
+
+              <div class="campo-duplo">
+
+                  <div class="campo-grupo">
+
+                      <label for="idade-aluno">Idade *</label>
+
+                      <input
+                          type="number"
+                          id="idade-aluno"
+                          name="idade"
+                          min="1"
+                          max="120"
+                          required
+                      >
+
+                  </div>
+
+
+                  <div class="campo-grupo">
+
+                      <label for="telefone-aluno">
+                          Telefone / WhatsApp *
+                      </label>
+
+                      <input
+                          type="tel"
+                          id="telefone-aluno"
+                          name="telefone"
+                          required
+                          placeholder="(86) 99999-9999"
+                          inputmode="tel"
+                      >
+
+                  </div>
+
+              </div>
+
+
+              <!-- E-MAIL -->
+
+              <div class="campo-grupo">
+
+                  <label for="email-aluno">E-mail *</label>
+
+                  <input
+                      type="email"
+                      id="email-aluno"
+                      name="email"
+                      required
+                      placeholder="aluno@email.com"
+                  >
+
+              </div>
+
+
+              <!-- INFORMAÇÕES MÉDICAS -->
+
+              <div class="campo-grupo">
+
+                  <label for="restricoes-aluno">
+                      Restrições Médicas / Lesões
+                  </label>
+
+                  <textarea
+                      id="restricoes-aluno"
+                      name="restricoes"
+                      placeholder="Ex: Hérnia de disco L4-L5, hipertensão, dores no joelho direito..."
+                  ></textarea>
+
+              </div>
+
+
+              <!-- AÇÕES DO MODAL -->
+
+              <div class="modal-acoes">
+
+                  <button
+                      type="button"
+                      id="btn-cancelar"
+                      class="btn-secundario"
+                  >
+                      Cancelar
+                  </button>
+
+                  <button
+                      type="submit"
+                      id="btn-salvar"
+                      class="btn-primario"
+                  >
+                      Salvar Aluno
+                  </button>
+
+              </div>
+
+            </form>
+
+      </div>
+
+  </div>
+
+
+  
+</body>
+</html>

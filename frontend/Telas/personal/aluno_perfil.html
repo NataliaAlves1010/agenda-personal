@@ -2,18 +2,18 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <!-- Meta tag obrigatória para renderização responsiva em telas de celulares e tablets -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitManager - Perfil do Aluno</title>
 </head>
 
 <body>
 
+    <!-- CABEÇALHO DA PAGINA -->
+
     <header class="aba-navegacao">
 
         <h1 class="logo">FitManager</h1>
 
-        <!-- nav: Menu de navegação principal da aplicação -->
         <nav class="menu" id="menu">
 
             <ul>
@@ -23,6 +23,7 @@
                 <li><a href="agenda.html">Agenda</a></li>
                 <li><a href="criacao_treino.html">Criação de Treino</a></li>
                 <li><a href="meu_perfil.html">Meu Perfil</a></li>
+                
             </ul>
 
         </nav>
@@ -33,7 +34,6 @@
     <main>
         <!-- 
             pagina-aluno: Contêiner pai responsável por agrupar o perfil e os dados.
-            No mobile, ficará em uma coluna única (empilhado); no desktop, poderá ser dividido em colunas com Flexbox/Grid.
         -->
         <div class="pagina-aluno">
 
@@ -42,7 +42,7 @@
                 
                 <div class="foto-aluno">
                     <img 
-                        src="...fotos/alunos.webp" 
+                        src="../../fotos/alunos.webp" 
                         alt="Foto do aluno"
                         class="img-perfil"
                     >
@@ -92,10 +92,10 @@
                         accept=".pdf"
                         class="input-file-oculto"
                     >
-                    <button type="button" class="btn-upload">
+                     <label for="bioimpedancia" class="btn-upload">
                         <span class="btn-titulo">Anexar PDF Bioimpedância</span>
                         <span class="btn-subtexto">Clique para fazer upload</span>
-                    </button>
+                    </label>
 
                 </form>
 
@@ -108,6 +108,13 @@
                 <div class="cabecalho-bioimpedancia">
                     <h3 class="titulo-secao">DADOS DE BIOIMPEDÂNCIA</h3>
                     <span class="data-avaliacao">Avaliação: 10/08/2024</span>
+                </div>
+
+                <div class="botao-historico-bioimpedancia" id="botao-historico-bioimpedancia">
+
+                    <a href="aluno_perfil.html">Bioimpedância</a>
+                    <a href="historico_treino.html">Histórico de Treino</a>
+
                 </div>
 
                 <!-- 
@@ -193,6 +200,7 @@
             </section> <!-- /.dados-bioimpedancia -->
 
         </div> <!-- /.pagina-aluno -->
+        
     </main>
 
 </body>

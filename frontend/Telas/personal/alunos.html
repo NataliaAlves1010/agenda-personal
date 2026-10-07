@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/d5c54d2ec4.js" crossorigin="anonymous" defer></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+
+    <title>FitManager - Gestão de Alunos</title>
+
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header class="aba-navegacao">
+
+        <h1 class="logo">FitManager</h1>
+
+        <nav class="menu" id="menu">
+
+            <ul>
+
+                <li><a href="dashboard.html">Dashboard</a></li>
+
+                <li><a href="alunos.html">Alunos</a></li>
+
+                <li><a href="agenda.html">Agenda</a></li>
+
+                <li><a href="criacao_treino.html">Criação de Treino</a></li>
+
+                <li><a href="meu_perfil.html">Meu Perfil</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CONTEÚDO PRINCIPAL DA PÁGINA DE ALUNOS -->
+
+    <main class="alunos-container">
+
+
+        <!-- TÍTULO DA PÁGINA E BOTÃO DE NOVO ALUNO -->
+
+        <div class="cabecalho-pagina">
+
+            <h2 class="titulo-pagina">Alunos</h2>
+
+            <button type="button" class="btn-novo-aluno">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Novo Aluno
+
+            </button>
+
+        </div>
+
+
+        <!-- CAMPO DE BUSCA -->
+
+        <form class="busca-alunos" role="search">
+
+            <label for="campo-busca" class="sr-only">
+                Buscar alunos
+            </label>
+
+            <i class="material-symbols-outlined icone-busca">
+                search
+            </i>
+
+            <input
+                type="search"
+                id="campo-busca"
+                name="busca"
+                class="input-busca"
+                placeholder="Buscar por nome ou matrícula..."
+            >
+
+        </form>
+
+
+        <!-- FILTROS DOS ALUNOS -->
+
+        <div class="filtros-status">
+
+
+            <!-- FILTRO TODOS -->
+
+            <button type="button" class="filtro-btn ativo">
+                6 Todos
+            </button>
+
+
+            <!-- FILTRO ALUNOS NOVOS -->
+
+            <button type="button" class="filtro-btn">
+                2 Novos
+            </button>
+
+
+            <!-- FILTRO ALUNOS VENCENDO -->
+
+            <button type="button" class="filtro-btn">
+                1 Vencendo
+            </button>
+
+        </div>
+
+
+        <!-- LISTA DE ALUNOS -->
+
+        <div class="lista-alunos">
+
+
+            <!-- CARD DO ALUNO -->
+
+            <article class="card-aluno">
+
+
+                <!-- FOTO DO ALUNO -->
+
+                <div class="foto-container">
+
+                    <img
+                        src="../fotos/aluno1.jpg"
+                        alt="Foto do aluno"
+                        class="foto-aluno"
+                    >
+
+                </div>
+
+
+                <!-- INFORMAÇÕES DO ALUNO -->
+
+                <div class="info-card">
+
+
+                    <!-- NOME E STATUS DO ALUNO -->
+
+                    <div class="cabecalho-card">
+
+                        <h3 class="nome-aluno">
+                            João Silva
+                        </h3>
+
+
+                        <!-- STATUS DO ALUNO -->
+
+                        <span class="status-aluno status-ativo">
+                            Ativo
+                        </span>
+
+                    </div>
+
+
+                    <!-- MATRÍCULA DO ALUNO -->
+
+                    <p class="matricula-aluno">
+                        #FM-1024
+                    </p>
+
+
+                    <!-- OBJETIVO, IDADE E PESO -->
+
+                    <p class="detalhes-aluno">
+
+                        <span class="detalhe-item">
+                            Hipertrofia
+                        </span>
+
+                        <span class="detalhe-item">
+                            28 anos
+                        </span>
+
+                        <span class="detalhe-item">
+                            82kg
+                        </span>
+
+                    </p>
+
+
+                    <!-- DATA DE VENCIMENTO -->
+
+                    <p class="data-vencimento">
+
+                        Vence:
+
+                        <time datetime="2026-09-15">
+                            15/09/2026
+                        </time>
+
+                    </p>
+
+
+                    <!-- SETA PARA ACESSAR O ALUNO -->
+
+                    <a href="aluno_perfil.html" class="acao-aluno" aria-label="Ver perfil do aluno">
+
+                        <i class="fa-solid fa-greater-than"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

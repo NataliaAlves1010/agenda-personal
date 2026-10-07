@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitManager - Histórico de Treino</title>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO DA PAGINA -->
+
+    <header class="aba-navegacao">
+
+        <h1 class="logo">FitManager</h1>
+
+        <nav class="menu" id="menu">
+
+            <ul>
+
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="alunos.html">Alunos</a></li>
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="criacao_treino.html">Criação de Treino</a></li>
+                <li><a href="meu_perfil.html">Meu Perfil</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL EXCLUSIVO DA PÁGINA -->
+
+    <main>
+
+        <div class="pagina-aluno">
+
+            <!-- CARD DO ALUNO -->
+
+            <section class="card-aluno">
+
+                <div class="foto-aluno">
+
+                    <img 
+                        src="../../fotos/alunos.webp" 
+                        alt="Foto do aluno"
+                        class="img-perfil"
+                    >
+
+                </div>
+
+                <div class="identificacao-aluno">
+
+                    <h2 class="nome-aluno">João Silva</h2>
+
+                    <span class="matricula">#FM-1024</span>
+
+                    <span class="status">ATIVO</span>
+
+                </div>
+
+                <div class="informacoes-aluno">
+
+                    <div class="info-item">
+
+                        <span class="info-label">PLANO</span>
+                        <span class="info-valor">Hipertrofia</span>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <span class="info-label">IDADE</span>
+                        <span class="info-valor">28 anos</span>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <span class="info-label">PESO</span>
+                        <span class="info-valor">82 kg</span>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <span class="info-label">ALTURA</span>
+                        <span class="info-valor">178cm</span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- NAVEGAÇÃO DO PERFIL -->
+
+            <div class="botao-historico-bioimpedancia" id="botao-historico-bioimpedancia">
+
+                <a href="aluno_perfil.html">Bioimpedância</a>
+
+                <a href="historico_treino.html">Histórico de Treino</a>
+
+            </div>
+
+
+            <!-- HISTÓRICO DE TREINO -->
+
+                    <section class="historico-treino">
+
+                        <h3 class="titulo-secao">Histórico de Treino</h3>
+
+                        <!-- TREINO -->
+
+                        <details class="registro-treino">
+
+                            <summary class="periodo-treino">
+                                01/01/2026 - 01/03/2026
+                            </summary>
+
+                            <div class="dados-treino">
+
+                                <h4 class="nome-treino">Treino A - Peito e Tríceps</h4>
+
+                                <p>60 minutos</p>
+                                <p>8 exercícios</p>
+
+                            </div>
+
+                            <!-- EXERCÍCIOS -->
+
+                            <ol class="lista-exercicios">
+
+                                <li>
+                                    <span>Supino reto</span>
+                                    <span>4 séries x 10 repetições</span>
+                                </li>
+
+                                <li>
+                                    <span>Supino inclinado</span>
+                                    <span>3 séries x 12 repetições</span>
+                                </li>
+
+                                <li>
+                                    <span>Tríceps na polia</span>
+                                    <span>3 séries x 12 repetições</span>
+                                </li>
+
+                            </ol>
+
+                        </details>
+
+                    </section>
+        </div>
+
+    </main>
+
+</body>
+</html>
