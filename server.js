@@ -15,7 +15,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Inicializa a SDK do Gemini com a chave do .env
-const apiKey = process.env.GEMINI_API_KEY;
+const apiKey = process.env.GEMINI_API_KEY ? process.env.GEMINI_API_KEY.trim() : null;
 let ai = null;
 if (apiKey) {
   ai = new GoogleGenAI({ apiKey });
@@ -62,31 +62,39 @@ app.post('/api/chat', async (req, res) => {
       parts: [{ text: message }]
     });
 
-    const primaryModel = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+    // Lista de modelos ordenados por prioridade (se o principal estiver com 503 por alta demanda, tenta o próximo)
+    const primaryModel = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
+    const candidateModels = [
+      primaryModel,
+      'gemini-3.5-flash-lite',
+      'gemini-3.8-flash',
+      'gemini-3.5-flash'
+    ].filter((m, index, arr) => arr.indexOf(m) === index); // remove duplicatas
 
     let responseText = '';
-    try {
-      const response = await ai.models.generateContent({
-        model: primaryModel,
-        contents: contents,
-        config: {
-          systemInstruction: SYSTEM_INSTRUCTION,
-          temperature: 0.7,
-        }
-      });
-      responseText = response.text;
-    } catch (modelErr) {
-      console.warn(`Erro com modelo ${primaryModel}, tentando fallback para gemini-2.0-flash...`, modelErr.message);
-      // Tentativa de fallback com modelo alternativo caso o principal não esteja disponível
-      const fallbackResponse = await ai.models.generateContent({
-        model: 'gemini-2.0-flash',
-        contents: contents,
-        config: {
-          systemInstruction: SYSTEM_INSTRUCTION,
-          temperature: 0.7,
-        }
-      });
-      responseText = fallbackResponse.text;
+    let lastError = null;
+
+    for (const modelName of candidateModels) {
+      try {
+        const response = await ai.models.generateContent({
+          model: modelName,
+          contents: contents,
+          config: {
+            systemInstruction: SYSTEM_INSTRUCTION,
+            temperature: 0.7,
+          }
+        });
+        responseText = response.text;
+        lastError = null;
+        break; // Sucesso na geração
+      } catch (err) {
+        lastError = err;
+        console.warn(`[Gemini] Modelo ${modelName} indisponível ou com alta demanda (status ${err.status || err.code}). Tentando alternativo...`);
+      }
+    }
+
+    if (lastError && !responseText) {
+      throw lastError;
     }
 
     res.json({ response: responseText });
