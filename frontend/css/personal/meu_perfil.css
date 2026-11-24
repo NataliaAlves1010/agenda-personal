@@ -1,0 +1,713 @@
+/* ==========================================================================
+   FITMANAGER - FOLHA DE ESTILOS GLOBAIS & RESPONSIVAS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIÁVEIS DO SISTEMA (Design Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta de Cores Primária (Fitness / Tech) */
+  --primary: #6366f1;         /* Indigo Primário */
+  --primary-hover: #4f46e5;   /* Indigo Escuro */
+  --primary-light: #eef2ff;   /* Fundo Suave */
+  
+  /* Cores Neutras / Escalas de Cinza */
+  --bg-main: #f8fafc;         /* Fundo da Página */
+  --bg-surface: #ffffff;      /* Fundo de Cards/Containers */
+  --border-color: #e2e8f0;    /* Bordas Suaves */
+  --text-primary: #0f172a;    /* Texto Principal */
+  --text-secondary: #475569;  /* Texto Secundário / Labels */
+  --text-muted: #94a3b8;      /* Textos Suaves / Placeholders */
+
+  /* Cores Semânticas / Status */
+  --success: #10b981;         /* Ativo / Aumento */
+  --success-bg: #d1fae5;
+  --warning: #f59e0b;         /* Vencendo / Atenção */
+  --warning-bg: #fef3c7;
+  --danger: #ef4444;          /* Inativo / Redução / Excluir */
+  --danger-bg: #fee2e2;
+
+  /* Tipografia */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+  /* Espaçamentos e Bordas */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  /* Transições */
+  --transition-fast: 0.2s ease;
+}
+
+  /* --------------------------------------------------------------------------
+     2. RESET & BASE
+     -------------------------------------------------------------------------- */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* --------------------------------------------------------------------------
+     3. CABEÇALHO GLOBAL & NAVEGAÇÃO
+     -------------------------------------------------------------------------- */
+  .aba-navegacao {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .aba-navegacao .logo {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+  }
+
+  .aba-navegacao .menu ul {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .aba-navegacao .menu a {
+    display: inline-block;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .aba-navegacao .menu a:hover,
+  .aba-navegacao .menu a.ativo {
+    background-color: var(--primary-light);
+    color: var(--primary);
+  }
+
+  /* --------------------------------------------------------------------------
+     4. PÁGINA MEU PERFIL
+     -------------------------------------------------------------------------- */
+  .perfil-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .titulo-pagina {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Formulário de Perfil */
+  .form-perfil {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .form-perfil h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 1.5rem;
+  }
+
+  /* Informações Pessoais */
+  .informacoes-personal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Card de Identificação */
+  .card-identificacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+  }
+
+  .nome-personal {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .profissao {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0;
+  }
+
+  .cref {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* Informações da Conta */
+  .informacoes-conta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+  }
+
+  .informacoes-conta > span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 100px;
+  }
+
+  .informacoes-conta strong {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .informacoes-conta span:last-child {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  /* Ações do Formulário */
+  .acoes-form {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .btn-salvar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: var(--primary);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .btn-salvar:hover {
+    background-color: var(--primary-hover);
+  }
+
+  .btn-salvar:active {
+    transform: scale(0.98);
+  }
+
+  /* --------------------------------------------------------------------------
+     5. RESPONSIVIDADE
+     -------------------------------------------------------------------------- */
+
+  /* Tablets: 768px em diante */
+  @media (min-width: 768px) {
+    .aba-navegacao {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 0.75rem 1.5rem;
+    }
+
+    .aba-navegacao .menu ul {
+      overflow: visible;
+      padding-bottom: 0;
+    }
+
+    .perfil-container {
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .titulo-pagina {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-perfil {
+      padding: 2rem;
+    }
+
+    .card-identificacao {
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
+      padding: 2rem;
+    }
+
+    .card-identificacao > div {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .informacoes-conta {
+      justify-content: flex-start;
+      gap: 2.5rem;
+      padding-top: 0;
+      border-top: none;
+      border-left: 1px solid var(--border-color);
+      padding-left: 2rem;
+    }
+
+    .informacoes-conta > span {
+      align-items: flex-start;
+      min-width: 120px;
+    }
+
+    .informacoes-conta strong {
+      font-size: 2rem;
+    }
+
+    .informacoes-conta span:last-child {
+      font-size: 0.9rem;
+    }
+
+    .acoes-form {
+      margin-top: 2.5rem;
+      text-align: right;
+    }
+
+    .btn-salvar {
+      width: auto;
+      min-width: 200px;
+      padding: 1rem 2rem;
+    }
+  }
+
+  /* Desktop: 1024px em diante */
+  @media (min-width: 1024px) {
+    .aba-navegacao {
+      padding: 0.85rem 2rem;
+    }
+
+    .aba-navegacao .logo {
+      font-size: 1.5rem;
+    }
+
+    .perfil-container {
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    .titulo-pagina {
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .form-perfil {
+      padding: 2.5rem;
+    }
+
+    .card-identificacao {
+      padding: 2.5rem;
+    }
+
+    .nome-personal {
+      font-size: 1.75rem;
+    }
+
+    .profissao {
+      font-size: 1.1rem;
+    }
+
+    .cref {
+      font-size: 1rem;
+    }
+
+    .informacoes-conta {
+      gap: 3.5rem;
+      padding-left: 2.5rem;
+    }
+
+    .informacoes-conta strong {
+      font-size: 2.25rem;
+    }
+
+    .informacoes-conta span:last-child {
+      font-size: 1rem;
+    }
+
+    .acoes-form {
+      margin-top: 3rem;
+    }
+
+    .btn-salvar {
+      min-width: 220px;
+      padding: 1.1rem 2.5rem;
+      font-size: 1.05rem;
+    }
+  }
+/* Navigation aligned with the dashboard */
+.aba-navegacao {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  width: 100%;
+  min-height: 4.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.aba-navegacao .logo {
+  position: static;
+  grid-column: 1;
+  justify-self: start;
+  transform: none;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.5px;
+}
+
+.aba-navegacao .menu {
+  grid-column: 2;
+  min-width: 0;
+  margin: 0;
+}
+
+.aba-navegacao .menu ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  width: max-content;
+  max-width: min(70vw, 70rem);
+  margin: 0 auto;
+  padding: 0;
+  overflow-x: auto;
+  list-style: none;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.aba-navegacao .menu li {
+  display: block;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aba-navegacao .menu a {
+  display: inline-block;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.aba-navegacao .menu a:hover,
+.aba-navegacao .menu a.ativo {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+body {
+  padding-top: 4.5rem;
+}
+
+@media (max-width: 767px) {
+  .aba-navegacao {
+    min-height: 6.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .aba-navegacao .logo {
+    justify-self: auto;
+    font-size: 1.25rem;
+  }
+
+  .aba-navegacao .menu {
+    width: 100%;
+  }
+
+  .aba-navegacao .menu ul {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    padding-bottom: 0;
+  }
+
+  .aba-navegacao .menu a {
+    padding: 0.4rem 0.55rem;
+    font-size: 0.8rem;
+  }
+
+  body {
+    padding-top: 6.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .aba-navegacao .logo {
+    font-size: 1.5rem;
+  }
+}
+/* Layout do perfil: preserva o tema e reorganiza os elementos existentes. */
+.perfil-container {
+  width: min(100% - 2rem, 1280px);
+  max-width: none;
+  margin-inline: auto;
+  padding: clamp(1rem, 3vw, 2.5rem) 0 3rem;
+}
+
+.perfil-container > .titulo-pagina {
+  margin-bottom: 1rem;
+}
+
+.perfil-container .form-perfil {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.perfil-container .informacoes-personal {
+  min-width: 0;
+}
+
+.perfil-container .card-identificacao {
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background-color: var(--bg-surface);
+}
+
+.perfil-container .informacoes-conta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  justify-content: stretch;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  padding-left: 0;
+  border-top: 1px solid var(--border-color);
+  border-left: 0;
+}
+
+.perfil-container .informacoes-conta > span {
+  min-width: 0;
+  align-items: center;
+  text-align: center;
+}
+
+.perfil-container .informacoes-conta span:last-child {
+  font-size: 0.8rem;
+}
+
+.perfil-container .acoes-form {
+  margin: 0;
+  text-align: left;
+}
+
+.perfil-container .btn-salvar {
+  width: 100%;
+  max-width: none;
+  min-height: 3.25rem;
+}
+
+@media (min-width: 768px) {
+  .perfil-container .form-perfil {
+    grid-template-columns: minmax(250px, 320px) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+
+  .perfil-container .informacoes-personal {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .perfil-container .acoes-form {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+  }
+}
+
+@media (min-width: 1024px) {
+  .perfil-container .form-perfil {
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+
+  .perfil-container .acoes-form {
+    align-self: end;
+  }
+}
+/* Avatar com controle de foto no mesmo padrao visual do perfil. */
+.avatar-personal {
+  position: relative;
+  display: grid;
+  flex: 0 0 auto;
+  width: clamp(7rem, 13vw, 8rem);
+  aspect-ratio: 1;
+  place-items: center;
+  overflow: visible;
+  color: var(--primary);
+  background: var(--primary-light);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+}
+
+.iniciais-personal {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.foto-personal-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.iniciais-personal[hidden],
+.foto-personal-preview[hidden] {
+  display: none !important;
+}
+
+.botao-foto-personal {
+  position: absolute;
+  right: -0.25rem;
+  bottom: 0.15rem;
+  z-index: 1;
+  display: grid;
+  width: 2.1rem;
+  height: 2.1rem;
+  place-items: center;
+  color: #fff;
+  background: var(--primary);
+  border: 2px solid var(--bg-surface);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.botao-foto-personal:hover {
+  background: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.botao-foto-personal svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
+.input-foto-personal {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+.botao-foto-personal:focus-within {
+  outline: 3px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .avatar-personal {
+    width: 7rem;
+  }
+
+  .botao-foto-personal {
+    width: 2rem;
+    height: 2rem;
+  }
+}

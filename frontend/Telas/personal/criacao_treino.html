@@ -9,6 +9,8 @@
 
     <script src="https://kit.fontawesome.com/d5c54d2ec4.js" crossorigin="anonymous" defer></script>
 
+    <link rel="stylesheet" href="../../css/personal/criacao_treino.css">
+
     <title>FitManager - Criação de Treino</title>
 
 </head>
@@ -53,11 +55,10 @@
 
             <div class="aluno-info-basica">
 
-                <img 
-                    src="../fotos/aluno1.jpg" 
-                    alt="Foto do aluno" 
-                    class="foto-aluno"
-                >
+                <div class="avatar-aluno">
+                    <img src="../fotos/aluno1.jpg" alt="Foto do aluno" class="foto-aluno">
+                    <span class="avatar-iniciais" aria-hidden="true" hidden></span>
+                </div>
 
                 <div class="aluno-detalhes">
 
@@ -65,8 +66,12 @@
                     <p class="matricula">#FM-1024</p>
 
                 </div>
+                <button type="button" class="botao-selecionar-aluno" id="botao-selecionar-aluno" aria-label="Selecionar aluno" aria-expanded="false" aria-controls="lista-alunos-seletor" hidden>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </button>
 
             </div>
+            <div class="lista-alunos-seletor" id="lista-alunos-seletor" role="listbox" aria-label="Escolha o aluno" hidden></div>
 
         </section>
 
@@ -162,6 +167,17 @@
         <form class="form-treino" id="form-treino">
 
             <section class="resumo-treino">
+
+                <div class="datas-treino">
+                    <div class="campo-data-treino">
+                        <label for="data-inicio-treino">Data de in&#xED;cio</label>
+                        <input type="date" id="data-inicio-treino" name="data-inicio-treino" required>
+                    </div>
+                    <div class="campo-data-treino">
+                        <label for="data-fim-treino">Data de t&#xE9;rmino</label>
+                        <input type="date" id="data-fim-treino" name="data-fim-treino" required>
+                    </div>
+                </div>
 
                 <div class="dados-exercicio">
 
@@ -476,6 +492,139 @@
 
     </main>
 
+
+    <script>
+      (() => {
+        const card = document.querySelector('.card-aluno-selecionado');
+        const trigger = document.getElementById('botao-selecionar-aluno');
+        const menu = document.getElementById('lista-alunos-seletor');
+        const nameNode = card?.querySelector('.nome-aluno');
+        const idNode = card?.querySelector('.matricula');
+        const image = card?.querySelector('.foto-aluno');
+        const initials = card?.querySelector('.avatar-iniciais');
+        if (!card || !trigger || !menu || !nameNode || !idNode || !image || !initials) return;
+
+        const activeStudents = [];
+        const currentStudent = {
+          name: nameNode.textContent.trim(),
+          id: idNode.textContent.trim(),
+          photo: image.getAttribute('src') || ''
+        };
+
+        const getInitials = (name) => name.trim().split(/\s+/).slice(0, 2).map((part) => part[0] || '').join('').toUpperCase();
+
+        const setAvatar = (student) => {
+          initials.textContent = getInitials(student.name);
+          initials.hidden = true;
+          image.hidden = false;
+          image.onerror = () => {
+            image.hidden = true;
+            initials.hidden = false;
+          };
+          image.src = student.photo || currentStudent.photo;
+          if (image.complete && image.naturalWidth === 0) {
+            image.hidden = true;
+            initials.hidden = false;
+          }
+        };
+
+        const setStudent = (student) => {
+          nameNode.textContent = student.name;
+          idNode.textContent = student.id;
+          setAvatar(student);
+          menu.querySelectorAll('[role="option"]').forEach((option) => {
+            option.setAttribute('aria-selected', String(option.dataset.studentId === student.id));
+          });
+        };
+
+        const closeMenu = () => {
+          menu.hidden = true;
+          trigger.setAttribute('aria-expanded', 'false');
+        };
+
+        const renderOptions = () => {
+          menu.replaceChildren();
+          activeStudents.forEach((student) => {
+            const option = document.createElement('button');
+            option.type = 'button';
+            option.className = 'opcao-aluno-seletor';
+            option.setAttribute('role', 'option');
+            option.dataset.studentId = student.id;
+            option.setAttribute('aria-selected', String(student.id === idNode.textContent.trim()));
+            option.textContent = `${student.name}  ${student.id}`;
+            option.addEventListener('click', () => {
+              setStudent(student);
+              closeMenu();
+              trigger.focus();
+            });
+            menu.append(option);
+          });
+          trigger.hidden = activeStudents.length < 2;
+        };
+
+        activeStudents.push(currentStudent);
+
+        fetch(new URL('alunos.html', window.location.href))
+          .then((response) => response.ok ? response.text() : '')
+          .then((markup) => {
+            if (!markup) return;
+            const documentAlunos = new DOMParser().parseFromString(markup, 'text/html');
+            const seen = new Set();
+            documentAlunos.querySelectorAll('.card-aluno').forEach((studentCard) => {
+              if (studentCard.querySelector('.status-aluno') && !studentCard.querySelector('.status-aluno').classList.contains('status-ativo')) return;
+              const name = studentCard.querySelector('.nome-aluno')?.textContent.trim();
+              const id = studentCard.querySelector('.matricula-aluno')?.textContent.trim();
+              if (!name || !id || seen.has(id)) return;
+              seen.add(id);
+              const existing = activeStudents.findIndex((student) => student.id === id);
+              const student = {
+                name,
+                id,
+                photo: studentCard.querySelector('.foto-aluno')?.getAttribute('src') || currentStudent.photo
+              };
+              if (existing >= 0) activeStudents[existing] = student;
+              else activeStudents.push(student);
+            });
+            const selected = activeStudents.find((student) => student.id === currentStudent.id) || activeStudents[0];
+            if (selected) setStudent(selected);
+            renderOptions();
+          })
+          .catch(() => renderOptions());
+
+        trigger.addEventListener('click', () => {
+          const opening = menu.hidden;
+          menu.hidden = !opening;
+          trigger.setAttribute('aria-expanded', String(opening));
+        });
+
+        document.addEventListener('click', (event) => {
+          if (!card.contains(event.target)) closeMenu();
+        });
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeMenu();
+        });
+
+        setAvatar(currentStudent);
+      })();
+    </script>
+
+    <script>
+      (() => {
+        const start = document.getElementById('data-inicio-treino');
+        const end = document.getElementById('data-fim-treino');
+        if (!start || !end) return;
+
+        const syncDateLimits = () => {
+          if (start.value && end.value && end.value < start.value) end.value = '';
+          end.min = start.value;
+          start.max = end.value;
+        };
+
+        start.addEventListener('change', syncDateLimits);
+        end.addEventListener('change', syncDateLimits);
+        syncDateLimits();
+      })();
+    </script>
 </body>
 
 </html>

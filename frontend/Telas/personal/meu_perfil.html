@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head> 
+
     <meta charset="UTF-8">
+
     <!-- Meta tag obrigatória para renderização responsiva em celulares e tablets -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../css/personal/meu_perfil.css">
+
     <title>FitManager - Meu Perfil</title>
 </head>
 
@@ -40,6 +45,16 @@
                 
                 <!-- Card de Identificação -->
                 <div class="card-identificacao">
+                    <div class="avatar-personal">
+                        <span class="iniciais-personal" aria-hidden="true">MT</span>
+                        <img id="foto-personal-preview" class="foto-personal-preview" alt="Foto do personal" hidden>
+                        <label class="botao-foto-personal" for="foto-personal-input" aria-label="Adicionar ou trocar foto do personal" title="Adicionar ou trocar foto">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M14.5 4h-5L8 6H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-3l-1.5-2ZM12 17a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0-1.8a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z"/>
+                            </svg>
+                            <input id="foto-personal-input" class="input-foto-personal" type="file" accept="image/*">
+                        </label>
+                    </div>
 
                     <h3 class="nome-personal">Marcos Torres</h3>
 
@@ -81,5 +96,27 @@
 
     </main>
 
+
+    <script>
+      (() => {
+        const input = document.getElementById('foto-personal-input');
+        const preview = document.getElementById('foto-personal-preview');
+        const initials = document.querySelector('.iniciais-personal');
+        if (!input || !preview || !initials) return;
+
+        input.addEventListener('change', () => {
+          const file = input.files && input.files[0];
+          if (!file || !file.type.startsWith('image/')) return;
+
+          const reader = new FileReader();
+          reader.addEventListener('load', () => {
+            preview.src = reader.result;
+            preview.hidden = false;
+            initials.hidden = true;
+          });
+          reader.readAsDataURL(file);
+        });
+      })();
+    </script>
 </body>
 </html>
